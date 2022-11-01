@@ -7,7 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   username = ""
-  onSubmit(){
-    this.username = ""
-  }
 }
