@@ -30,7 +30,10 @@
       <br />
       <hr />
       <li *ngFor="let time of secrets; let i = index">
-        <p [ngStyle]="{ backgroundColor: i >= 4 ? 'blue' : 'white' }">
+        <p
+          [ngStyle]="{ backgroundColor: i >= 4 ? 'blue' : 'white' }"
+          [ngClass]="{ 'white-text': i > 2 }"
+        >
           {{ time }}
           {{ i }}
         </p>
