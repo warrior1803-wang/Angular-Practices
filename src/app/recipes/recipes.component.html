@@ -1,8 +1,16 @@
 <div class="row">
   <div class="col-md-5">
-    <app-recipe-list> </app-recipe-list>
+    <!-- This means: When a recipeWasSelected event is emitted in the child component, the selectedRecipe property of the present component should be set to the recipe which was emitted by the EventEmitter (as payload of the recipeWasSelected event).
+       Note: $event can have any type; in this case it's a recipe, since you are emitting a recipe in the child component.
+ -->
+    <app-recipe-list (recipeWasSelected)="selectedRecipe = $event">
+    </app-recipe-list>
   </div>
   <div class="col-md-2">
-    <app-recipe-detail></app-recipe-detail>
+    <app-recipe-detail
+      *ngIf="selectedRecipe; else infoText"
+      [recipe]="selectedRecipe"
+    ></app-recipe-detail>
+    <ng-template #infoText> <p>please select a recipe</p> </ng-template>
   </div>
 </div>
